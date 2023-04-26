@@ -2,14 +2,15 @@
 
 Getting Started
 First, run the development server:
-
 npm run dev
-# or
+or 
 yarn dev
+
 Open http://localhost:3000 with your browser to see the result.
 
 
-About
+# About
+
 This project is part of the Shaw and Partners test.
 The test consisted of creating an Api that returns all github users, as well as their repositories.
 
