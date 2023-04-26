@@ -1,6 +1,18 @@
-import { app } from './routes/users.js';
-const port = 3000;
+import express from 'express';
+import * as dotenv from 'dotenv';
+import { userRouter } from './routes/users.js';
+import cors from 'cors';
 
-app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+export const app = express();
+
+dotenv.config();
+app.use(cors());
+app.use(express.json());
+
+const port = 4000;
+
+app.use(`/api/users`, userRouter);
+
+app.listen(Number(process.env.PORT), () => {
+  console.log(`Server listening at http://localhost${process.env.PORT}`);
 });

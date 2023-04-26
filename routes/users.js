@@ -1,9 +1,10 @@
 import express from 'express';
 import axios from 'axios';
-import dotenv from 'dotenv';
+import * as dotenv from 'dotenv';
 
-export const app = express();
 dotenv.config();
+
+const userRouter = express.Router();
 
 const axiosConfig = {
   headers: {
@@ -11,7 +12,7 @@ const axiosConfig = {
   },
 };
 
-app.get(`/users`, async (req, res) => {
+userRouter.get(``, async (req, res) => {
   const number = req.query.since || 0;
   const url = `https://api.github.com/users?since=${number}`;
 
@@ -24,7 +25,7 @@ app.get(`/users`, async (req, res) => {
   }
 });
 
-app.get('/users/:username', async (req, res) => {
+userRouter.get('/:username/details', async (req, res) => {
   try {
     const { username } = req.params;
     const response = await axios.get(
@@ -38,7 +39,7 @@ app.get('/users/:username', async (req, res) => {
   }
 });
 
-app.get('/users/:username/repos', async (req, res) => {
+userRouter.get('/:username/repos', async (req, res) => {
   try {
     const { username } = req.params;
     const response = await axios.get(
@@ -51,3 +52,4 @@ app.get('/users/:username/repos', async (req, res) => {
     res.status(404).send('User not found');
   }
 });
+export { userRouter };
