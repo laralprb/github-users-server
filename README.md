@@ -8,7 +8,6 @@ yarn dev
 
 # About
 
-This project is part of the Shaw and Partners test.
-The test consisted of creating an Api that returns all github users, as well as their repositories.
+This project is consisted of creating an Api that returns all github users, as well as their repositories.
 
 A repository was also created containing the frontend built in React Js. > https://github.com/laralprb/github-users-front
