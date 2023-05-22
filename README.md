@@ -6,9 +6,6 @@ npm run dev
 or 
 yarn dev
 
-Open http://localhost:3000 with your browser to see the result.
-
-
 # About
 
 This project is part of the Shaw and Partners test.
